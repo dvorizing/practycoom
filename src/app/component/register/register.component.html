@@ -1,0 +1,67 @@
+<form (ngSubmit)="save(myForm)" #myForm="ngForm" id="form" class="=form">
+  <h1> פרטים אישיים</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>שם פרטי</mat-label>
+      <input matInput  [(ngModel)]="userSer.user.Name"  name="name" required pattern="[a-zA-Zא-ת ]*" #name="ngModel" >
+      <div class="errors" *ngIf="name.touched&&name.errors&&name.errors['required']">זהו שדה חובה</div>
+      <div class="errors" *ngIf="name.invalid && (name.dirty || name.touched)">שם יכול להכיל אותיות בלבד</div>
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field appearance="fill">
+        <mat-label>שם משפחה</mat-label>
+        <input matInput  [(ngModel)]="userSer.user.FamilyName"  name="familyName" required pattern="[a-zA-Zא-ת  ]*" #familyName="ngModel" >
+        <div class="errors" *ngIf="familyn.touched&&familyn.errors&&familyn.errors['required']">זהו שדה חובה</div>
+        <div class="errors" *ngIf="familyn.invalid && (familyn.dirty || familyn.touched)">שם יכול להכיל אותיות בלבד</div>
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="fill">
+        <mat-label>תעודת זהות</mat-label>
+        <input matInput  [(ngModel)]="userSer.user.Id"  name="id" required pattern="[0-9 ]*" #id="ngModel" >
+        <div class="errors" *ngIf="id.touched&&id.errors&&id.errors['required']">זהו שדה חובה</div>
+        <div class="errors" *ngIf="id.invalid && (id.dirty || id.touched)">תז יכול להכיל מספרים בלבד</div>
+      </mat-form-field>
+      <br/>  
+     
+        <p> תאריך לידה</p>
+        <input required type="date"  [(ngModel)]="userSer.user.DateBorn"  name="datebBorn" #d="ngModel" class="date">    
+      <br/>       
+        <p>קופת חולים </p>
+       <select [(ngModel)]="userSer.user.MedicalClinic" name="MedicalClinic" required class="sel">
+        <option  value="4">   Clalit </option>
+        <option value="2">Meuchedet </option>
+        <option value="1">  Macaby </option>
+        <option value="8"> Leumit </option>
+    </select>
+
+      <br/>
+      <p> מין </p>
+        <select [(ngModel)]="userSer.user.Gender" name="Gender" required class="sel">
+          <option>Fmale</option>
+          <option>Male</option>
+      </select>
+      <!-- <button  (click)= "myFunc()">הוספת ילדים</button> -->
+      <h1>הוספת ילדים</h1>
+      <br/>
+  <mat-form-field appearance="fill">
+    <mat-label>שם משפחה</mat-label>
+    <input matInput  [(ngModel)]="child.FamilyName"  name="familyName"  pattern="[a-zA-Zא-ת  ]*" #familyn="ngModel" >
+    <div class="errors" *ngIf="familyn.touched&&familyn.errors&&familyn.errors['required']">זהו שדה חובה</div>
+    <div class="errors" *ngIf="familyn.invalid && (familyn.dirty || familyn.touched)">שם יכול להכיל אותיות בלבד</div>
+  </mat-form-field>
+  <br/>
+  <mat-form-field appearance="fill">
+    <mat-label>תעודת זהות</mat-label>
+    <input matInput  [(ngModel)]="child.Id"  name="id"  pattern="[0-9 ]*" #k="ngModel" >
+    <div class="errors" *ngIf="k.touched&&k.errors&&k.errors['required']">זהו שדה חובה</div>
+    <div class="errors" *ngIf="k.invalid && (k.dirty || k.touched)">תז יכול להכיל מספרים בלבד</div>
+  </mat-form-field>
+  <br/>  
+
+  <p> תאריך לידה</p>
+  <input  type="date"  [(ngModel)]="child.DateBorn"  name="da" #l="ngModel" >       
+    <br/>
+    <input type="button" value="הוספה" (click)="addChild(familyn,k,l)" />
+    <input type="submit" [disabled]="!myForm.valid"/>
+    </form>
+   
