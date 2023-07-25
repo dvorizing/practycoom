@@ -1,0 +1,14 @@
+This is the client side of the Practicum project(HMO)
+HMO customer management system A project designed to manage
+HMO customers. Allows the user to add customers,
+register their children and create a downloadable XEL page containing all the registration details
+. ## Features - **Customer management**:
+A user can add new customers to the system, including their personal details 
+such as name, contact details and membership details in the hospital fund
+**Registration of children-**:
+After adding a customer, the user can register his children under the customer's profile. 
+You can register children's details, such as name, date of birth and health information.
+**Registration process-**:
+The system provides a smooth registration process that allows users to add children and registrations 
+and at the end of the process. A downloadable XEL page (Excel) containing all the registration details,
+including personal and private information including children listed in his profile.
